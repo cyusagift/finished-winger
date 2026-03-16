@@ -1,0 +1,77 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Winger - Inventory Management</title>
+    <meta name="description" content="Inventory Management System for Winger, Kigali" />
+    <meta name="author" content="Winger" />
+    <meta name="theme-color" content="#c75a2a" />
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" href="/pwa.png" />
+    <link rel="apple-touch-icon" href="/pwa-192x192.png" />
+
+    <meta property="og:title" content="Winger - Inventory Management" />
+    <meta property="og:description" content="Inventory Management System for Winger, Kigali" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@Lovable" />
+    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+  </head>
+
+  <body>
+    <div id="root"></div>
+    <script>
+      // If the JS bundle fails to load (e.g. opening dist/index.html directly or wrong base URL),
+      // render a minimal fallback so users don't just see a blank page.
+      (function () {
+        function showFallback(message, detail) {
+          var root = document.getElementById("root");
+          if (!root) return;
+          if (root.childNodes && root.childNodes.length > 0) return;
+          root.innerHTML =
+            '<div style="min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:#0b0f14;color:#e6edf3;">' +
+            '<div style="max-width:680px;width:100%;background:#111827;border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:20px;">' +
+            '<div style="font-size:18px;font-weight:700;margin:0 0 8px;">App failed to load</div>' +
+            '<div style="font-size:13px;line-height:1.5;color:rgba(230,237,243,.75);margin:0 0 12px;">' +
+            message +
+            "</div>" +
+            (detail
+              ? '<pre style="white-space:pre-wrap;word-break:break-word;margin:0;padding:12px;border-radius:10px;background:rgba(255,255,255,.06);color:rgba(230,237,243,.85);font-size:12px;">' +
+                detail +
+                "</pre>"
+              : "") +
+            '<div style="margin-top:12px;font-size:12px;color:rgba(230,237,243,.7)">' +
+            "Tip: don’t open <code>dist/index.html</code> directly. Use <code>npm run dev</code> or <code>npm run preview</code> and open the printed <code>http://localhost:PORT</code> URL." +
+            "</div>" +
+            "</div></div>";
+        }
+
+        window.addEventListener("error", function (e) {
+          showFallback(
+            "A script error occurred while starting the app.",
+            e && e.message ? e.message : String(e),
+          );
+        });
+        window.addEventListener("unhandledrejection", function (e) {
+          var reason = e && e.reason ? e.reason : e;
+          showFallback(
+            "A promise was rejected while starting the app.",
+            reason && reason.message ? reason.message : String(reason),
+          );
+        });
+
+        setTimeout(function () {
+          showFallback(
+            "The page loaded, but the app didn't mount. This usually means the JS bundle couldn't be fetched or crashed early.",
+            location.href,
+          );
+        }, 1500);
+      })();
+    </script>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

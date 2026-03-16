@@ -1,0 +1,196 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Winger Inventory - Warm African-inspired Design System */
+
+@layer base {
+  :root {
+    /* Warm terracotta and earth tones */
+    --background: 30 25% 97%;
+    --foreground: 25 30% 15%;
+
+    --card: 30 20% 99%;
+    --card-foreground: 25 30% 15%;
+
+    --popover: 30 20% 99%;
+    --popover-foreground: 25 30% 15%;
+
+    /* Terracotta primary */
+    --primary: 16 65% 50%;
+    --primary-foreground: 30 25% 98%;
+
+    /* Warm sand secondary */
+    --secondary: 35 30% 92%;
+    --secondary-foreground: 25 30% 20%;
+
+    --muted: 30 20% 94%;
+    --muted-foreground: 25 15% 45%;
+
+    /* Golden accent */
+    --accent: 40 75% 55%;
+    --accent-foreground: 25 30% 15%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Success green - Rwanda hills inspired */
+    --success: 142 55% 40%;
+    --success-foreground: 0 0% 100%;
+
+    /* Warning amber */
+    --warning: 38 92% 50%;
+    --warning-foreground: 25 30% 15%;
+
+    --border: 30 20% 88%;
+    --input: 30 20% 88%;
+    --ring: 16 65% 50%;
+
+    --radius: 0.75rem;
+
+    /* Sidebar */
+    --sidebar-background: 25 25% 12%;
+    --sidebar-foreground: 30 20% 92%;
+    --sidebar-primary: 16 65% 55%;
+    --sidebar-primary-foreground: 30 25% 98%;
+    --sidebar-accent: 25 20% 20%;
+    --sidebar-accent-foreground: 30 20% 92%;
+    --sidebar-border: 25 20% 20%;
+    --sidebar-ring: 16 65% 55%;
+
+    /* Custom gradients */
+    --gradient-warm: linear-gradient(135deg, hsl(16 65% 50%) 0%, hsl(35 70% 55%) 100%);
+    --gradient-earth: linear-gradient(180deg, hsl(30 25% 97%) 0%, hsl(35 20% 92%) 100%);
+  }
+
+  .dark {
+    --background: 25 25% 8%;
+    --foreground: 30 20% 95%;
+
+    --card: 25 20% 12%;
+    --card-foreground: 30 20% 95%;
+
+    --popover: 25 20% 12%;
+    --popover-foreground: 30 20% 95%;
+
+    --primary: 16 65% 55%;
+    --primary-foreground: 25 30% 10%;
+
+    --secondary: 25 20% 18%;
+    --secondary-foreground: 30 20% 90%;
+
+    --muted: 25 15% 20%;
+    --muted-foreground: 30 15% 60%;
+
+    --accent: 40 75% 50%;
+    --accent-foreground: 25 30% 10%;
+
+    --destructive: 0 62% 45%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 142 55% 45%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 38 92% 55%;
+    --warning-foreground: 25 30% 10%;
+
+    --border: 25 15% 22%;
+    --input: 25 15% 22%;
+    --ring: 16 65% 55%;
+
+    --sidebar-background: 25 25% 6%;
+    --sidebar-foreground: 30 20% 92%;
+    --sidebar-primary: 16 65% 55%;
+    --sidebar-primary-foreground: 25 30% 10%;
+    --sidebar-accent: 25 20% 15%;
+    --sidebar-accent-foreground: 30 20% 92%;
+    --sidebar-border: 25 15% 15%;
+    --sidebar-ring: 16 65% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight;
+  }
+}
+
+@layer components {
+  .stat-card {
+    @apply relative overflow-hidden rounded-xl bg-card p-6 shadow-sm border border-border transition-all duration-300 hover:shadow-md;
+  }
+
+  .stat-card-gradient {
+    @apply absolute inset-0 opacity-5;
+    background: var(--gradient-warm);
+  }
+
+  .inventory-badge {
+    @apply inline-flex items-center gap-1.5 rounded-full px-2.5 py-0.5 text-xs font-medium;
+  }
+
+  .inventory-badge-success {
+    @apply bg-success/15 text-success;
+  }
+
+  .inventory-badge-warning {
+    @apply bg-warning/15 text-warning;
+  }
+
+  .inventory-badge-danger {
+    @apply bg-destructive/15 text-destructive;
+  }
+
+  .page-header {
+    @apply mb-8;
+  }
+
+  .page-title {
+    @apply text-3xl font-bold text-foreground;
+  }
+
+  .page-subtitle {
+    @apply text-muted-foreground mt-1;
+  }
+}
+
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 0.3s ease-out;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-slide-in {
+    animation: slideIn 0.4s ease-out;
+  }
+
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateX(-16px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+}
